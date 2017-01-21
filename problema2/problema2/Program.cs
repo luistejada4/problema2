@@ -11,18 +11,21 @@ namespace problema2
     {
         static void Main(string[] args)
         {
-            Hashtable diccionario = new Hashtable();
-            diccionario.Add("correr", "es un proceso complejo y coordinado que involucra a todo el cuerpo.\nCada ser humano corre de una manera diferente,\npero ciertos aspectos generales de los movimientos de la carrera son comunes.\n");
-            Console.WriteLine("Por favor introdusca una palabra para ver su definicion: ");
-            String palabra = Console.ReadLine();
-            if(diccionario.ContainsKey(palabra))
+            Console.WriteLine("Introdusca una palabra: ");
+            String cadena = Console.ReadLine();
+            Console.WriteLine("Escriba 1 si quieres justificar la cadena la izquierda o 2 para justificar la cadena a la derecha");
+            int op = int.Parse(Console.ReadLine());
+
+            switch(op)
             {
-                Console.Write(diccionario[palabra]);
+                case 1:
+                    cadena.PadLeft(cadena.Length);
+                    break;
+                case 2:
+                    cadena.PadRight(cadena.Length);
+                    break;
             }
-            else
-            {
-                Console.WriteLine("Esta palabra no se encuentra en el diccionario!");
-            }
+            Console.WriteLine(cadena);
             Console.ReadKey();
         }
     }
